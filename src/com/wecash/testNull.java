@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
  * Created by chengtong on 2017/3/22.
  */
 public class testNull {
+
     @org.junit.Test
     public void testNull() {
         test1();
