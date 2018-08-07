@@ -22,9 +22,12 @@ public class NioTest {
         ssc.socket().bind(new InetSocketAddress(8080));
         ssc.register(selector, SelectionKey.OP_ACCEPT);//注册监听事件
         while(true){
+            System.out.println("-------- test --------");
             Set selectedKeys = selector.selectedKeys();//取得所有key的集合
+            System.out.println("-------- test1 --------");
             Iterator it = selectedKeys.iterator();
             while(it.hasNext()){
+                System.out.println("-------- test2 --------");
                 SelectionKey key = (SelectionKey) it.next();
                 if((key.readyOps() & SelectionKey.OP_ACCEPT)==SelectionKey.OP_ACCEPT){
                     ServerSocketChannel ssChannel = (ServerSocketChannel) key.channel();

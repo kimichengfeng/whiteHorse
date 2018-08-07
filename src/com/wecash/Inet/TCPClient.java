@@ -7,7 +7,8 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 /**
- * TCP客户与服务器建立连接，发送请求并接收应答
+ * TCP客户与服务器建立连接，发送请求并接收应答。
+ *  新的Socket实例创建后，就立即能用于发送和接收数据。也就是说，当Socket实例返回时，它已经连接到了一个远程终端，并通过协议的底层实现完成了TCP消息或握手信息的交换。
  */
 public class TCPClient {
     public static void main(String[] args) {//消息和服务器的DNS主机名

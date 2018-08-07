@@ -6,6 +6,13 @@ import java.util.concurrent.BlockingQueue;
 /**
  * Created by chengtong on 2017/11/1.
  * 定义一个盘子类，可以放鸡蛋和取鸡蛋
+ * ArrayBlockingQueue的内部是通过一个可重入锁ReentrantLock和两个Condition条件对象来实现阻塞
+ * // 控制并发访问的锁
+  final ReentrantLock lock;
+ //notEmpty条件对象，用于通知take方法队列已有元素，可执行获取操作
+  private final Condition notEmpty;
+//notFull条件对象，用于通知put方法队列未满，可执行添加操作
+  private final Condition notFull;
  */
 public class BigPlate {
 
