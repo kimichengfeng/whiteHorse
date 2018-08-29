@@ -19,6 +19,7 @@ public class testNull {
     public int test1(){
         try {
             System.out.println( isNumber("111.00sh"));
+            System.out.println("test");
             return 1;
         } catch (Exception e) {
             System.out.println(ExceptionStackTraceUtil.getExceptionStackTrace(e));
