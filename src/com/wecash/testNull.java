@@ -4,6 +4,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.regex.Pattern;
 
@@ -18,9 +19,16 @@ public class testNull {
     }
     public int test1(){
         try {
-            System.out.println( isNumber("111.00sh"));
-            System.out.println("test2");
-            System.out.println("test");
+            String a = new String("bbbb");
+            String b = new String("bbbb");
+//           if (a == b) {
+//               System.out.println("a==b 1");
+//           }
+//           if (a != null && a.equals(b)){
+//               System.out.println("a==b 2");
+//           }
+            System.out.println(Objects.equals(a,b));
+
             return 1;
         } catch (Exception e) {
             System.out.println(ExceptionStackTraceUtil.getExceptionStackTrace(e));
