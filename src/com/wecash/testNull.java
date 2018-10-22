@@ -1,10 +1,15 @@
 package com.wecash;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
+
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.regex.Pattern;
 
@@ -18,23 +23,11 @@ public class testNull {
         test1();
     }
     public int test1(){
-        try {
-            String a = new String("bbbb");
-            String b = new String("bbbb");
-//           if (a == b) {
-//               System.out.println("a==b 1");
-//           }
-//           if (a != null && a.equals(b)){
-//               System.out.println("a==b 2");
-//           }
-            System.out.println(Objects.equals(a,b));
-
-            return 1;
-        } catch (Exception e) {
-            System.out.println(ExceptionStackTraceUtil.getExceptionStackTrace(e));
-        }finally {
-            System.out.println("ok");
-        }
+       String objects = null;
+       if(objects instanceof String){
+           System.out.println("ok");
+       }
+        System.out.println("no");
         return 2;
     }
     public static boolean isNumber(String string) {

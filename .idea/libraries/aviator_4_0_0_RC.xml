@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="aviator-4.0.0-RC">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/aviator-4.0.0-RC.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
