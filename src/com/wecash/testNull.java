@@ -23,11 +23,14 @@ public class testNull {
         test1();
     }
     public int test1(){
-       String objects = null;
-       if(objects instanceof String){
-           System.out.println("ok");
-       }
-        System.out.println("no");
+        List<String> list = Lists.newArrayList();
+        List<String> list1 = Lists.newArrayList("1","2");
+        List<String> list2 = Lists.newArrayList("2","3");
+        list.addAll(list1);
+        list.addAll(list2);
+        list.forEach(item->{
+            System.out.println(item);
+        });
         return 2;
     }
     public static boolean isNumber(String string) {

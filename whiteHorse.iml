@@ -21,5 +21,26 @@
     <orderEntry type="library" name="cglib-nodep-2.2 (2)" level="project" />
     <orderEntry type="library" name="guava-19.0" level="project" />
     <orderEntry type="library" name="aviator-4.0.0-RC" level="project" />
+    <orderEntry type="library" name="slf4j-api-1.7.20" level="project" />
+    <orderEntry type="library" name="poi-3.17" level="project" />
+    <orderEntry type="library" name="httpclient-4.5.6" level="project" />
+    <orderEntry type="library" name="commons-httpclient-3.1" level="project" />
+    <orderEntry type="library" name="fastjson-1.2.32" level="project" />
+    <orderEntry type="library" name="commons-lang3-3.7" level="project" />
+    <orderEntry type="library" name="httpmime-4.5.6" level="project" />
+    <orderEntry type="library" name="httpcore-4.4.8" level="project" />
+    <orderEntry type="library" name="log4j-1.2.14" level="project" />
+    <orderEntry type="library" name="lombok-1.18.2" level="project" />
+    <orderEntry type="library" name="joda-time-2.9.7" level="project" />
+    <orderEntry type="library" name="spring-context-4.3.7.RELEASE" level="project" />
+    <orderEntry type="library" name="spring-webmvc-5.0.8.RELEASE" level="project" />
+    <orderEntry type="library" name="spring-web-5.0.8.RELEASE" level="project" />
+    <orderEntry type="library" name="spring-context-5.0.10.RELEASE" level="project" />
+    <orderEntry type="library" name="spring-beans-5.0.1.RELEASE" level="project" />
+    <orderEntry type="library" name="gson-2.8.2" level="project" />
+    <orderEntry type="library" name="jackson-databind-2.1.4" level="project" />
+    <orderEntry type="library" name="jetty-annotations-9.4.12.v20180830" level="project" />
+    <orderEntry type="library" name="jackson-core-2.9.5" level="project" />
+    <orderEntry type="library" name="jackson-mapper-asl-1.9.2" level="project" />
   </component>
 </module>
