@@ -23,15 +23,39 @@ public class testNull {
         test1();
     }
     public int test1(){
-        List<String> list = Lists.newArrayList();
-        List<String> list1 = Lists.newArrayList("1","2");
-        List<String> list2 = Lists.newArrayList("2","3");
-        list.addAll(list1);
-        list.addAll(list2);
-        list.forEach(item->{
-            System.out.println(item);
-        });
+        A test = new A();
+       Object ob = test;
+       A ob1 = (A) ob;
+        System.out.println(ob1);
         return 2;
+    }
+    class A{
+        String a="1";
+        String b="2";
+
+        public String getA() {
+            return a;
+        }
+
+        public void setA(String a) {
+            this.a = a;
+        }
+
+        public String getB() {
+            return b;
+        }
+
+        public void setB(String b) {
+            this.b = b;
+        }
+
+        @Override
+        public String toString() {
+            return "A{" +
+                    "a='" + a + '\'' +
+                    ", b='" + b + '\'' +
+                    '}';
+        }
     }
     public static boolean isNumber(String string) {
         if (string == null)
