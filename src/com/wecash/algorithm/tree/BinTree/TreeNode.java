@@ -4,12 +4,12 @@ package com.wecash.algorithm.tree.BinTree;
 * @author chengTong
 * @date 2018-06-29 12:00
 **/
-public class Node {
+public class TreeNode {
     int value;
-    Node leftChild;
-    Node rightChild;
+    TreeNode leftChild;
+    TreeNode rightChild;
 
-    Node(int value) {
+    TreeNode(int value) {
         this.value = value;
     }
 

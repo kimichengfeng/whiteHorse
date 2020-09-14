@@ -1,5 +1,8 @@
 package com.wecash.algorithm.tree.BinTree;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -9,18 +12,21 @@ import java.util.Stack;
 * @date 2018-06-29 12:01
 **/
 public class BinaryTree {
-    private Node root = null;
+    private TreeNode root = null;
 
     public BinaryTree(int value) {
-        root = new Node(value);
+        root = new TreeNode(value);
         root.leftChild  = null;
         root.rightChild = null;
+    }
+    public BinaryTree(){
+
     }
     /**
      * 查找
      */
-    public Node findKey(int value) {
-        Node current = root;
+    public TreeNode findKey(int value) {
+        TreeNode current = root;
         while(true){
             if(current.value == value){
                 return current;
@@ -41,27 +47,27 @@ public class BinaryTree {
     public String insert(int value) {
         String error = null;
 
-        Node node = new Node(value);
+        TreeNode treeNode = new TreeNode(value);
         if (root == null) {
-            root = node;
+            root = treeNode;
             root.leftChild  = null;
             root.rightChild = null;
         } else {
-            Node current = root;
-            Node parent = null;
+            TreeNode current = root;
+            TreeNode parent = null;
             while (true) {
                 if (value < current.value) {
                     parent = current;
                     current = current.leftChild;
                     if (current == null) {
-                        parent.leftChild = node;
+                        parent.leftChild = treeNode;
                         break;
                     }
                 } else if (value > current.value) {
                     parent = current;
                     current = current.rightChild;
                     if (current == null) {
-                        parent.rightChild = node;
+                        parent.rightChild = treeNode;
                         break;
                     }
                 } else {
@@ -83,13 +89,13 @@ public class BinaryTree {
         System.out.println();
 
     }
-    private void inOrderTraverse(Node node) {
-        if (node == null) {
+    private void inOrderTraverse(TreeNode treeNode) {
+        if (treeNode == null) {
             return;
         }
-        inOrderTraverse(node.leftChild);
-        node.display();
-        inOrderTraverse(node.rightChild);
+        inOrderTraverse(treeNode.leftChild);
+        treeNode.display();
+        inOrderTraverse(treeNode.rightChild);
     }
     /**
      * 中序非递归遍历：
@@ -99,8 +105,8 @@ public class BinaryTree {
      */
     public void inOrderByStack() {
         System.out.print("中序非递归遍历:");
-        Stack<Node> stack = new Stack<Node>();
-        Node current = root;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode current = root;
         while (current != null || !stack.isEmpty()) {
             while (current != null) {
                 stack.push(current);
@@ -126,14 +132,14 @@ public class BinaryTree {
         preOrderTraverse(root);
         System.out.println();
     }
-    private void preOrderTraverse(Node node) {
-        if (node == null) {
+    private void preOrderTraverse(TreeNode treeNode) {
+        if (treeNode == null) {
             return;
         }
 
-        node.display();
-        preOrderTraverse(node.leftChild);
-        preOrderTraverse(node.rightChild);
+        treeNode.display();
+        preOrderTraverse(treeNode.leftChild);
+        preOrderTraverse(treeNode.rightChild);
     }
 
     /**
@@ -144,8 +150,8 @@ public class BinaryTree {
      */
     public void preOrderByStack() {
         System.out.print("前序非递归遍历:");
-        Stack<Node> stack = new Stack<Node>();
-        Node current = root;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode current = root;
         while (current != null || !stack.isEmpty()) {
             while (current != null) {
                 stack.push(current);
@@ -172,13 +178,13 @@ public class BinaryTree {
         postOrderTraverse(root);
         System.out.println();
     }
-    private void postOrderTraverse(Node node) {
-        if (node == null) {
+    private void postOrderTraverse(TreeNode treeNode) {
+        if (treeNode == null) {
             return;
         }
-        postOrderTraverse(node.leftChild);
-        postOrderTraverse(node.rightChild);
-        node.display();
+        postOrderTraverse(treeNode.leftChild);
+        postOrderTraverse(treeNode.rightChild);
+        treeNode.display();
     }
 
     /**
@@ -189,9 +195,9 @@ public class BinaryTree {
      */
     public void postOrderByStack() {
         System.out.print("后序非递归遍历:");
-        Stack<Node> stack = new Stack<Node>();
-        Node current = root;
-        Node preNode = null;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode current = root;
+        TreeNode preTreeNode = null;
         while (current != null || !stack.isEmpty()) {
             while (current != null) {
                 stack.push(current);
@@ -200,10 +206,10 @@ public class BinaryTree {
 
             if (!stack.isEmpty()) {
                 current = stack.peek().rightChild;
-                if (current == null || current == preNode) {
+                if (current == null || current == preTreeNode) {
                     current = stack.pop();
                     current.display();
-                    preNode = current;
+                    preTreeNode = current;
                     current = null;
                 }
             }
@@ -216,7 +222,7 @@ public class BinaryTree {
      * @return
      */
     public int getMinValue() {
-        Node current = root;
+        TreeNode current = root;
         while (true) {
             if (current.leftChild == null) {
                 return current.value;
@@ -225,6 +231,31 @@ public class BinaryTree {
         }
 
     }
-//    public boolean delete(int value) {} //删除
+
+    /**
+     * 广度优先遍历
+     * @param root
+     * @return
+     */
+    public ArrayList<Integer> wide(TreeNode root) {
+        ArrayList<Integer> lists=new ArrayList<Integer>();
+        if(root==null)
+            return lists;
+        Queue<TreeNode> queue=new LinkedList<TreeNode>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            TreeNode node = queue.poll();
+            if(node.leftChild!=null){
+                queue.offer(node.leftChild);
+            }
+            if(node.rightChild!=null){
+                queue.offer(node.rightChild);
+            }
+            lists.add(node.value);
+        }
+        lists.stream().forEach(item-> System.out.print(item));
+        System.out.println("");
+        return lists;
+    }
 
 }
