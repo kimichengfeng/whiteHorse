@@ -38,7 +38,7 @@ public class StreamTest {
 
         /**多个条件**/
         Person result3 = persons.stream()
-                .filter((p) -> "jack".equals(p.getName()) && 20 == p.getAge())
+                .filter((p) -> "jack".equals(p.getName()) || "jack2".equals(p.getName()))
                 .findAny()
                 .orElse(null);
 

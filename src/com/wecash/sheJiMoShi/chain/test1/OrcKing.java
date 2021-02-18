@@ -36,7 +36,7 @@ public class OrcKing {
   }
 
   private void buildChain() {
-    chain = new OrcCommander(new OrcOfficer(new OrcSoldier(null)));
+    chain = new OrcCommander(new OrcOfficer(new OrcSoldier(null,true),true),true);
   }
 
   public void makeRequest(Request req) {

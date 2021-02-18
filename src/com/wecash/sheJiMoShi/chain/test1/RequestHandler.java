@@ -36,8 +36,19 @@ public abstract class RequestHandler {
 
   private RequestHandler next;
 
-  public RequestHandler(RequestHandler next) {
+  // 同步执行开关
+  public   Boolean synSwitch = false;
+  // 优先执行通道
+  public  String tppCode;
+
+  public RequestHandler(RequestHandler next,Boolean synSwitch) {
     this.next = next;
+    this.synSwitch = synSwitch;
+  }
+  public RequestHandler(RequestHandler next,Boolean synSwitch,String tppCode) {
+    this.next = next;
+    this.synSwitch = synSwitch;
+    this.tppCode = tppCode;
   }
 
   /**
@@ -48,10 +59,9 @@ public abstract class RequestHandler {
       next.handleRequest(req);
     }
   }
-
-  protected void printHandling(Request req) {
-    LOGGER.info("{} handling request \"{}\"", this, req);
-  }
+  public abstract Invoker beforeHander(Request req);
+  public abstract Invoker printHandling(Request req);
+  public abstract Invoker afterHander(Request req);
 
   @Override
   public abstract String toString();

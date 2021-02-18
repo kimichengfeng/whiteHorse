@@ -28,6 +28,14 @@ public class ReflectTest {
         return car;
     }
 
+    /**
+     * class.forName()前者除了将类的.class文件加载到jvm中之外，还会对类进行解释，执行类中的static块。注意这里的静态块指的是在类初始化时的一些数据。但是classloader却没有，想要弄清楚这个原因，还是直接到源码中看看。
+     * @throws ClassNotFoundException
+     */
+    public void classForName() throws ClassNotFoundException {
+        Class className = Class.forName("com.wecash.testNull");
+        System.out.println("className:"+className);
+    }
     public static void main(String[] args) throws Throwable {
         Car car = initByDefaultConst();
         car.introduce();

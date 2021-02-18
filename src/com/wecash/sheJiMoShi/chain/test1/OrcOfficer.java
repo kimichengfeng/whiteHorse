@@ -22,15 +22,19 @@
  */
 package com.wecash.sheJiMoShi.chain.test1;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 
  * OrcOfficer
  *
  */
 public class OrcOfficer extends RequestHandler {
+  private static final Logger LOGGER = LoggerFactory.getLogger(OrcOfficer.class);
 
-  public OrcOfficer(RequestHandler handler) {
-    super(handler);
+  public OrcOfficer(RequestHandler handler,Boolean synSwitch) {
+    super(handler,synSwitch);
   }
 
   @Override
@@ -39,9 +43,28 @@ public class OrcOfficer extends RequestHandler {
       printHandling(req);
       req.markHandled();
     } else {
+      LOGGER.info("super class = {}",super.getClass());
       super.handleRequest(req);
     }
   }
+
+  @Override
+  public Invoker beforeHander(Request req) {
+    return null;
+  }
+
+  @Override
+  public Invoker printHandling(Request req) {
+    LOGGER.info("OrcOfficer print: \"{}----{}\"。next={}", this);
+    Invoker invoker = new Invoker();
+    return invoker;
+  }
+
+  @Override
+  public Invoker afterHander(Request req) {
+    return null;
+  }
+
 
   @Override
   public String toString() {

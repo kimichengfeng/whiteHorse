@@ -25,7 +25,9 @@ public class SpringContext {
      * @return
      */
     private static ApplicationContext instance() {
-        return Suppliers.memoize((Supplier<ApplicationContext>) ContextLoader::getCurrentWebApplicationContext).get();
+        return Suppliers.memoize((Supplier<ApplicationContext>) () -> {
+            return ContextLoader.getCurrentWebApplicationContext();
+        }).get();
     }
 
     private SpringContext() {

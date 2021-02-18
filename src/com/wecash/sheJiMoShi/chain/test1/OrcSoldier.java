@@ -22,15 +22,23 @@
  */
 package com.wecash.sheJiMoShi.chain.test1;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 
  * OrcSoldier
  *
  */
 public class OrcSoldier extends RequestHandler {
+  private static final Logger LOGGER = LoggerFactory.getLogger(OrcSoldier.class);
 
-  public OrcSoldier(RequestHandler handler) {
-    super(handler);
+
+  public OrcSoldier(RequestHandler handler,Boolean synSwitch) {
+    super(handler,synSwitch);
+  }
+  public OrcSoldier(RequestHandler handler,Boolean synSwitch,String tppCode) {
+    super(handler,synSwitch,tppCode);
   }
 
   @Override
@@ -39,9 +47,28 @@ public class OrcSoldier extends RequestHandler {
       printHandling(req);
       req.markHandled();
     } else {
+      LOGGER.info("super class = {}",super.getClass());
       super.handleRequest(req);
     }
   }
+
+  @Override
+  public Invoker beforeHander(Request req) {
+    return null;
+  }
+
+  @Override
+  public Invoker printHandling(Request req) {
+    LOGGER.info("OrcSoldier print: \"{}----{}\"。next={}", this, req);
+    Invoker invoker = new Invoker();
+    return invoker;
+  }
+
+  @Override
+  public Invoker afterHander(Request req) {
+    return null;
+  }
+
 
   @Override
   public String toString() {
